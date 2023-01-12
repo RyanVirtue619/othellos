@@ -20,6 +20,6 @@ public class Constants
   public final static int EMPTY = 0;
   
   //Default 1500
-  public final static int DELAY = 0;  // Milliseconds
+  public final static int DELAY = 1500;  // Milliseconds
   
 }

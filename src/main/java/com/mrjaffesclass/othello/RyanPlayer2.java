@@ -24,7 +24,7 @@ public class RyanPlayer2 extends Player
 		private int eval = 0;
 		private int depth = 0;
 		private final int color;
-		static int maxDepth = 6;
+		static int maxDepth = 5;
 		private List<MiniMax> children = new ArrayList<>();
 		private final Board boardToEdit;
 		private Position move;

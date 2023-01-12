@@ -24,8 +24,8 @@ public class Othello {
 		for(int i = 0; i < repeats; i++) {
 			//System.out.println("Game: " + (i+1));
 			//ControllerNoPrint c = new ControllerNoPrint( 
-			//Controller c = new Controller(
-			ControllerRandomTesting c = new ControllerRandomTesting(
+			Controller c = new Controller(
+			//ControllerRandomTesting c = new ControllerRandomTesting(
 				player1, player2
 			);
 			c.displayMatchup();
@@ -53,8 +53,8 @@ public class Othello {
 	}
 	public static void main(String[] args) throws InterruptedException {
 		int repetitions = 1;
-		simulation(repetitions,new RyanPlayer2(Constants.BLACK), new RyanPlayer6(Constants.WHITE));
-		simulation(repetitions, new RyanPlayer6(Constants.BLACK), new RyanPlayer2(Constants.WHITE));	
+		simulation(repetitions,new TestPlayer(Constants.BLACK), new RyanPlayer7(Constants.WHITE));
+		//simulation(repetitions, new RyanPlayer6(Constants.BLACK), new RyanPlayer2(Constants.WHITE));	
 		System.exit(0);
 	}
   
