@@ -53,7 +53,7 @@ public class Othello {
 	}
 	public static void main(String[] args) throws InterruptedException {
 		int repetitions = 1;
-		simulation(repetitions,new TestPlayer(Constants.BLACK), new RyanPlayer7(Constants.WHITE));
+		simulation(repetitions,new TestPlayer(Constants.BLACK), new RyanPlayerEvolved(Constants.WHITE));
 		//simulation(repetitions, new RyanPlayer6(Constants.BLACK), new RyanPlayer2(Constants.WHITE));	
 		System.exit(0);
 	}
