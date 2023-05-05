@@ -204,7 +204,7 @@ public class RyanPlayer extends Player
 	}
 
 	public ArrayList<Position> getLegalMoves(Board board, Player playerToCheck) {
-	ArrayList list = new ArrayList<>();
+	ArrayList<Position> list = new ArrayList<>();
 	for (int row = 0; row < Constants.SIZE; row++) {
 		for (int col = 0; col < Constants.SIZE; col++) {
 			Position testPosition = new Position(row, col);

@@ -1,7 +1,6 @@
 package com.mrjaffesclass.othello;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class RyanPlayer3 extends Player 
@@ -93,15 +92,7 @@ public class RyanPlayer3 extends Player
 			return eval.compareTo(node.getEval());
 		}
 
-		private void setEval(boolean isMaxPlayer) {
-			if(children.isEmpty()) {
-				eval = evaluate(boardToEdit);
-			} else if(isMaxPlayer) {
-				eval = children.stream().max(Comparator.comparing(v -> v.getEval())).get().getEval();
-			} else {
-				eval = children.stream().min(Comparator.comparing(v -> v.getEval())).get().getEval();
-			}
-		}
+		
 		
 		private void generateMoves() {
 			eval = (isMaxPlayer? (-1000000) : (1000000));
@@ -238,7 +229,7 @@ public class RyanPlayer3 extends Player
 	}
 
 	public ArrayList<Position> getLegalMoves(Board board, Player playerToCheck) {
-	ArrayList list = new ArrayList<>();
+	ArrayList<Position> list = new ArrayList<>();
 	for (int row = 0; row < Constants.SIZE; row++) {
 		for (int col = 0; col < Constants.SIZE; col++) {
 			Position testPosition = new Position(row, col);

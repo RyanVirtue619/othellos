@@ -166,7 +166,7 @@ public class RyanPlayer7 extends Player
 			double influence = influence(board);
 			//double giveCorners = giveCorners(board);
 			double mobility = mobility(board);
-			double pieceParity = pieceParity(board);
+			//double pieceParity = pieceParity(board);
 			return corners +  stability + influence + mobility;
 		}
 		
@@ -500,7 +500,7 @@ public class RyanPlayer7 extends Player
 			return end;
 		}
 
-		private double pieceParity(Board board) {
+		/*private double pieceParity(Board board) {
 			int weight = 1;
 			int maxPlayerParity = 0;
 			int minPlayerParity = 0;
@@ -519,9 +519,9 @@ public class RyanPlayer7 extends Player
 			double div = (x / y);
 			double end = weight * div;
 			return end;
-		}
+		}*/
 		
-		private double giveCorners(Board board) {
+		/*private double giveCorners(Board board) {
 			int weight = 60;
 			int maxPlayerGive = 0;
 			int minPlayerGive = 0;
@@ -587,7 +587,7 @@ public class RyanPlayer7 extends Player
 			double div = (x / y);
 			double end = weight * div;
  			return end;
-		}
+		}*/
 	}
 
 
@@ -601,7 +601,7 @@ public class RyanPlayer7 extends Player
 	}
 
 	public ArrayList<Position> getLegalMoves(Board board, Player playerToCheck) {
-			ArrayList list = new ArrayList<>();
+			ArrayList<Position> list = new ArrayList<>();
 			for (int row = 0; row < Constants.SIZE; row++) {
 					for (int col = 0; col < Constants.SIZE; col++) {
 							Position testPosition = new Position(row, col);

@@ -95,8 +95,7 @@ public class TestPlayer extends Player {
    * @return True if this is a legal move for the player
    */
   public ArrayList<Position> getLegalMoves(Board board) {
-    int color = this.getColor();
-    ArrayList list = new ArrayList<>();
+    ArrayList<Position> list = new ArrayList<>();
     for (int row = 0; row < Constants.SIZE; row++) {
       for (int col = 0; col < Constants.SIZE; col++) {
         if (board.getSquare(this, row, col).getStatus() == Constants.EMPTY) {

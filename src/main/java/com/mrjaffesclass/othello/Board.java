@@ -162,7 +162,6 @@ public class Board
    */
   protected boolean step(Player player, Position position, Position direction, int count) {
     Position newPosition = position.translate(direction);
-    int color = player.getColor();
     if (newPosition.isOffBoard()) {
       // If off the board then move is not legal
       return false;

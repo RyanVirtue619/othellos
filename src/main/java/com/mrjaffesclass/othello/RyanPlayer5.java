@@ -1,7 +1,6 @@
 package com.mrjaffesclass.othello;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class RyanPlayer5 extends Player 
@@ -143,7 +142,7 @@ public class RyanPlayer5 extends Player
 			return x == Constants.SIZE - 1 && y == Constants.SIZE - 1;
 		}
 
-		private boolean isStable(Board board, int x, int y) {
+		public boolean isStable(Board board, int x, int y) {
 			boolean nStatic = false, neStatic = false, nwStatic = false, sStatic = false, 
 			seStatic = false, swStatic = false, wStatic = false, eStatic = false;
 			String[] directions = Directions.getDirections();
@@ -209,7 +208,7 @@ public class RyanPlayer5 extends Player
 	}
 
 	public ArrayList<Position> getLegalMoves(Board board, Player playerToCheck) {
-	ArrayList list = new ArrayList<>();
+	ArrayList<Position> list = new ArrayList<>();
 	for (int row = 0; row < Constants.SIZE; row++) {
 		for (int col = 0; col < Constants.SIZE; col++) {
 			Position testPosition = new Position(row, col);
