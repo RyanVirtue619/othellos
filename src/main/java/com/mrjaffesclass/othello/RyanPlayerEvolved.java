@@ -86,7 +86,7 @@ public class RyanPlayerEvolved extends Player {
         private int[][] board;
         private int depth;
         private boolean isMaxPlayer;
-        private int maxDepth = 5;
+        private int maxDepth = 7;
         private double eval;
         private ArrayList<int[]> legals = new ArrayList<>();
         private ArrayList<MiniMax> children = new ArrayList<>();
@@ -146,6 +146,29 @@ public class RyanPlayerEvolved extends Player {
                 System.out.println();
             }
         }
+        public void printBoard(int[][] board) {
+            System.out.print("| ");
+            for(int k = 0; k < board.length; k++) {
+                System.out.print("|" + k);
+            }
+            System.out.print("|");
+            System.out.println();
+            for (int i = 0; i < board.length; i++) {
+                System.out.print("|" + i);
+                for (int j = 0; j < board.length; j++) {
+                    String getStr = "";
+                    if (board[i][j] == -1)
+                        getStr = "W";
+                    if (board[i][j] == 1)
+                        getStr = "B";
+                    if (board[i][j] == 0)
+                        getStr = " ";
+                    System.out.print("|" + getStr);
+                }
+                System.out.print("|");
+                System.out.println();
+            }
+        }
 
         public int[] getMove() {
             return this.move;
@@ -156,15 +179,15 @@ public class RyanPlayerEvolved extends Player {
         }
 
         public double evaluate() {
-            double inf = influence(board);
+            //double inf = influence(board);
             double corners = corners(board);
-            return inf + corners;
+            return corners;
         }
 
         public double evaluate(int[][] boardToEval) {
-            double inf = influence(boardToEval);
+            //double inf = influence(boardToEval);
             double corners = corners(boardToEval);
-            return inf + corners;
+            return corners;
         }
 
 
@@ -227,7 +250,7 @@ public class RyanPlayerEvolved extends Player {
                     }
                 }
                 makeMove(newBoard, pos, isMaxPlayer ? (player) : (player * -1));
-                System.out.print("| ");
+                /*System.out.print("| ");
                 for(int k = 0; k < newBoard.length; k++) {
                     System.out.print("|" + k);
                 }
@@ -247,13 +270,15 @@ public class RyanPlayerEvolved extends Player {
                     }
                     System.out.print("|");
                     System.out.println();
-                }
+                }*/
                 children.add(new MiniMax(newBoard, depth + 1, !isMaxPlayer, player, pos));
             }
         }
         
         private void makeMove(int[][] boardToMove, int[] move, int player) {
+            //printBoard(boardToMove);
             boardToMove[move[0]][move[1]] = player;
+            //printBoard(boardToMove);
             updateBoard(boardToMove, move);
         }
         public void printLegals(boolean[][] legals) {
@@ -280,6 +305,7 @@ public class RyanPlayerEvolved extends Player {
         
         private void updateBoard(int[][] boardToMove, int[] move) {
             HashMap<Integer, int[]> passed = new HashMap<>();
+            //printBoard(boardToMove);
             int square = getBoardItem(boardToMove, move);
             for (int[] dir : DIRECTIONS) {
                 int[] pos = new int[2];
@@ -291,9 +317,10 @@ public class RyanPlayerEvolved extends Player {
                     passed.put(getBoardItem(boardToMove, move), new int[] { pos[0], pos[1] });
                     addVector(dir, pos);
                 }
-                if (inBounds(pos) && getBoardItem(boardToMove, move) != 0) {
+                if (inBounds(pos) && getBoardItem(boardToMove, pos) != 0) {
                     updateSquares(boardToMove, pos, new int[] {move[0], move[1]}, dir);
                 }
+                //printBoard(boardToMove);
             }
         }
 
@@ -311,7 +338,7 @@ public class RyanPlayerEvolved extends Player {
         
         private void generateMoves() {
             boolean[][] legalArr = getLegalMoves(board, isMaxPlayer ? (player) : (player * -1));
-            printLegals(legalArr);
+            //printLegals(legalArr);
             //System.out.println("board to test, player: " + (isMaxPlayer ? ("W") : ("B")));
             /*  for (int i = 0; i < legalArr.length; i++) {
                 for (int j = 0; j < legalArr.length; j++) {
