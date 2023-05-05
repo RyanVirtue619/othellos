@@ -23,8 +23,8 @@ public class Othello {
 		String p2Name = "";
 		for(int i = 0; i < repeats; i++) {
 			System.out.println("Game: " + (i+1));
-			ControllerNoPrint c = new ControllerNoPrint( 
-			//Controller c = new Controller(
+			//ControllerNoPrint c = new ControllerNoPrint( 
+			Controller c = new Controller(
 			//ControllerRandomTesting c = new ControllerRandomTesting(
 				player1, player2
 			);
@@ -52,7 +52,7 @@ public class Othello {
 		System.out.printf("%s Times: Total Time = %dms, Avg Time Per Game = %dms\n", p2Name,p2TotalTime, p2AvgGameTime);
 	}
 	public static void main(String[] args) throws InterruptedException {
-		int repetitions = 5;
+		int repetitions = 1;
 		simulation(repetitions,new TestPlayer(Constants.BLACK), new RyanPlayerEvolved(Constants.WHITE));
 		//simulation(repetitions, new RyanPlayerEvolved(Constants.BLACK), new TestPlayer(Constants.WHITE));	
 		System.exit(0);
